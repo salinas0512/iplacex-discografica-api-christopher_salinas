@@ -7,6 +7,6 @@ RUN gradle build -x test --no-daemon
 # Stage 2: Ejecutar con OpenJDK
 FROM openjdk:21-jdk-slim
 WORKDIR /app
-COPY --from=build /app/build/libs/discografica-1.jar app.jar
+COPY --from=build /app/build/libs/*.jar app.jar
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
